@@ -15,7 +15,6 @@ function Register() {
 
   const registerData = async (e) => {
     e.preventDefault();
-    console.log(name, email, contact, address, dob);
 
     // send data to backend
     const response = await axios.post("http://localhost:8000/user/create", {
@@ -58,6 +57,7 @@ function Register() {
         <input
           className="FormInput"
           type="text"
+          required
           name="name"
           id="name"
           placeholder="Name"
@@ -67,6 +67,7 @@ function Register() {
         <input
           className="FormInput"
           type="email"
+          required
           name="email"
           id="email"
           placeholder="Email"
@@ -76,6 +77,7 @@ function Register() {
         <input
           className="FormInput"
           type=""
+          required
           name="address"
           id="address"
           placeholder="Address"
@@ -84,8 +86,10 @@ function Register() {
         />
         <input
           className="FormInput"
-          type="text"
+          type="tel"
+          required
           name="contact"
+          maxInput={10}
           id="contact"
           placeholder="Contact"
           value={contact}
@@ -96,6 +100,7 @@ function Register() {
           <input
             className="DobInput"
             type="date"
+            required
             name="dob"
             id="dob"
             value={dob}
